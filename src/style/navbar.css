@@ -1,0 +1,57 @@
+nav{
+    background-color: black;
+    color: white;
+    padding: 4px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#appLogo>a{
+    text-decoration: none;
+}
+#appLogo>a>h4{
+    border: 2px solid rgb(59, 255, 219);
+    padding: 5px 8px;
+    margin: 2px;
+    color: rgb(77, 253, 144);
+    font-weight: bold;
+    border-radius: 5px;
+}
+#navBtn{
+    /* display: inline; */
+    margin: auto;
+}
+#navBtn>ul{
+    list-style: none;
+    display: inline;
+}
+#navBtn>ul>li{
+    display: inline;
+}
+#navBtn>ul>li>a{
+    border: 2px solid rgb(59, 255, 219);
+    padding: 5px 8px;
+    margin: 2px 4px;
+    color: rgb(77, 253, 144);
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+}
+#navBtn>ul>li>a:hover{
+    color: rgb(255, 0, 0);
+    border-radius: 0px;
+}
+#connectWalletBtn{
+    border: 2px solid rgb(59, 255, 219);
+    padding: 5px 8px;
+    margin: 2px;
+    color: red;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+}
+#connectWalletBtn:hover{
+    cursor: pointer;
+    border: 2px solid red;
+}

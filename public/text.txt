@@ -1,0 +1,5 @@
+const dev ={
+    name:  "UTKARSH YADAV",
+    age: 17,
+    app: "React js"
+}
