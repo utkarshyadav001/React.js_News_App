@@ -1,25 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import  '../style/navbar.css'
 
-export default function Navbar() {
-  return (
-    <nav>
+export default class Navbar extends Component {
+  render() {
+    return (
+        <nav>
         <div id="appLogo">
-            <a href="/"><h4>Coin market</h4></a>
+            <a href="/"><h4>Today News</h4></a>
         </div>
-        <div id="navBtn">
+        <div id="navBtnBox">
           <ul>
-            <li><a href="/" id="homeBtn">Home</a></li>
-            <li><a href="/" id="createTokenBtn">Create Coin</a></li>
-            <li><a href="/" id="createNFTBtn">Create NFT</a></li>
-            <li><a href="/" id="aboutBtn">About</a></li>
-            <li><a href="/" id="documentsBtn">Documents</a></li>
-            <li><a href="/" id="helpBtn">Help</a></li>
+            <li><a href="/" id="navBtn">Home</a></li>
+            <li><a href="/" id="navBtn">Business</a></li>
+            <li><a href="/" id="navBtn">Entertainment</a></li>
+            <li><a href="/" id="navBtn">General</a></li>
+            <li><a href="/" id="navBtn">Science</a></li>
+            <li><a href="/" id="navBtn">Sport</a></li>
+            <li><a href="/" id="navBtn">Technology</a></li>
+            <li><a href="/" id="navBtn">Health</a></li>
           </ul>
         </div>
-        <div id="connectWallet">
-          <p id="connectWalletBtn">Connect Wallet</p>
-        </div>
     </nav>
-  )
+    )
+  }
 }

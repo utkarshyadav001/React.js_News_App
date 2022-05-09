@@ -1,57 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* box-sizing: border-box; */
+}
 nav{
-    background-color: black;
-    color: white;
-    padding: 4px 0px;
     width: 100%;
+    background-color: black;
+    padding: 4px 0px;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 #appLogo>a{
     text-decoration: none;
 }
 #appLogo>a>h4{
-    border: 2px solid rgb(59, 255, 219);
-    padding: 5px 8px;
+    border: 1px solid rgb(59, 255, 69);
+    padding: 4px 6px;
     margin: 2px;
-    color: rgb(77, 253, 144);
-    font-weight: bold;
+    color: white;
     border-radius: 5px;
 }
-#navBtn{
-    /* display: inline; */
-    margin: auto;
+#navBtnBox{
+    width: 70%;
+    margin: auto 5px;
 }
-#navBtn>ul{
+#navBtnBox>ul{
     list-style: none;
+}
+#navBtnBox>ul>li{
     display: inline;
 }
-#navBtn>ul>li{
-    display: inline;
-}
-#navBtn>ul>li>a{
-    border: 2px solid rgb(59, 255, 219);
-    padding: 5px 8px;
-    margin: 2px 4px;
-    color: rgb(77, 253, 144);
-    font-weight: bold;
+#navBtn{
+    padding: 0px 12px;
+    color: white;
     border-radius: 8px;
     text-decoration: none;
 }
-#navBtn>ul>li>a:hover{
+#navBtnBox>ul>li>a:hover{
     color: rgb(255, 0, 0);
     border-radius: 0px;
-}
-#connectWalletBtn{
-    border: 2px solid rgb(59, 255, 219);
-    padding: 5px 8px;
-    margin: 2px;
-    color: red;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-}
-#connectWalletBtn:hover{
-    cursor: pointer;
-    border: 2px solid red;
 }
