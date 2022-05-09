@@ -1,0 +1,18 @@
+#newsBox{
+    padding-top: 10px;
+    width: 80%;
+    min-height: 100vh;
+    margin: auto;
+}
+#newsBox>h1{
+    display: block;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 14px;
+}
+#newsItemBox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
