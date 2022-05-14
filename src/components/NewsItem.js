@@ -10,7 +10,7 @@ export default class NewsItem extends Component {
         <h1>{title}</h1>
         <p>{description}</p>
         <strong></strong>
-        <button><a href={newsUrl} target="_blank">Read More</a></button>
+        <button className="btn"><a href={newsUrl} rel="noreferrer" target="_blank">Read More</a></button>
       </div>
     )
   }

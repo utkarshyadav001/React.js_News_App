@@ -16,3 +16,9 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+#priv-Next{
+    margin: 12px 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

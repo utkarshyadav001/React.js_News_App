@@ -1,9 +1,25 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import '../style/news.css'
 import NewsItem from './NewsItem'
+import Spinner from './Spinner'
 
 export default class News extends Component {
-  article = [
+  
+  static defaultProps = {
+        country: "in",
+        pageSize: "6",
+        category: "Technology",
+  }
+
+  static propTypes = {
+        country: PropTypes.string,
+        pageSize: PropTypes.number,
+        category: PropTypes.string,
+  }
+
+
+  articles = [
     {
       "source": {
         "id": null,
@@ -265,29 +281,83 @@ export default class News extends Component {
       "content": "ByUniversity of CambridgeMay 8, 2022\r\nAccording to a team of scientists, cognitive impairment as a result of severe COVID-19 is similar to that sustained from the 20 years of aging between 50 and 70 … [+8052 chars]"
     }
   ]
+
   constructor() {
     super();
     // console.log("hello bro i am from News Components");
-
     this.state = {
-      article: this.article,
-      loading: false
+      articles: this.articles,
+      loading: false,
+      page: 1,
+      totalResults: 0,
     }
-
   };
+
+
+  async componentDidMount(){
+    // console.log("component did mount.");
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&cetegory=${this.props.category}&apiKey=1f7dfa379db24899b090c99e7989025e&page=1&pageSize=${this.props.pageSize}`;
+    this.setState({loading: true});
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    this.setState({
+      articles: parsedData.articles,
+      totalResults: parsedData.totalResults,
+      loading: false
+    });
+  }
+
+
+  handlePrevClick = async ()=>{
+    console.log("pre");
+    // npm audit fix === cheackthis
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&cetegory=${this.props.category}&apiKey=1f7dfa379db24899b090c99e7989025e&page=${this.state.page -1}&pageSize=${this.props.pageSize}`;
+    this.setState({loading: true});
+      let data = await fetch(url);
+      let parsedData = await data.json();  
+      this.setState({
+        articles: parsedData.articles,
+        page: this.state.page - 1,
+        loading: false
+      })
+  }
+
+
+
+  handleNextClick = async ()=>{
+    console.log("next");
+
+    if( !(this.state.page + 1>Math.ceil(this.state.totalResults/this.props.pageSize))){
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&cetegory=${this.props.category}&apiKey=1f7dfa379db24899b090c99e7989025e&page=${this.state.page +1}&pageSize=${this.props.pageSize}`;
+        this.setState({loading: true});
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        this.setState({
+          articles: parsedData.articles,
+          page: this.state.page +1,
+          loading: false
+        });
+    }
+  }
+
   render() {
     return (
       <div className="container">
         <div id="newsBox">
           <h1>Welcome to Today News - Top Headlines</h1>
-
+          {this.state.loading && <Spinner/>}
           <div id="newsItemBox">
-            {this.state.article.map((element) => {
+            { this.state.loading &&  this.state.articles.map((element) => {
               // console.log(element)
-              return <NewsItem key={element.url} title={element.title} description={element.description} imageUrl="" newsUrl={element.url} />
+              return <NewsItem key={element.url} title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} />
             })}
             {/* <NewsItem title="This is your Title" description="This is your description" imageUrl="" /> */}
           </div>
+
+          <div id="priv-Next">
+          <button disabled={this.state.page<=1} className="btn" onClick={this.handlePrevClick}> &larr; Previous</button>
+          <button disabled={this.state.page + 1>Math.ceil(this.state.totalResults/this.props.pageSize)}className="btn" onClick={this.handleNextClick}>Next &rarr;</button>
+        </div>
         </div>
       </div>
     )
