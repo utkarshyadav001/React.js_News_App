@@ -1,0 +1,17 @@
+.container{
+    display: block;
+    color: blue;
+    width: 68%;
+    margin: 10px auto;
+    padding: 5px 10px;
+}
+.container button {
+    display: inline-block;
+    margin: 12px 6px;
+    width: 125px;
+    padding: 5px 0px;
+}
+.container h3 {
+    display: inline-block;
+    margin: 5px 6px;
+}

@@ -1,7 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import  '../style/navbar.css'
 
 export default function Navbar() {
+  const amount = useSelector(state => state.amount)
   return (
     <nav>
         <div id="appLogo">
@@ -18,7 +20,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div id="connectWallet">
-          <p id="connectWalletBtn">Connect Wallet</p>
+          <button id="connectWalletBtn">Connect Wallet {amount} </button>
         </div>
     </nav>
   )
